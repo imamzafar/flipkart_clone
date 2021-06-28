@@ -1,0 +1,8 @@
+admin/node_modules
+<<<<<<< HEAD
+backend/node_modules
+frontend/node_modules
+=======
+frontend/node_modules
+backend/node_modules
+>>>>>>> 713a7766f9dc71974f5c29d9f45d88f7485b0af6
