@@ -24,7 +24,7 @@ env.config();
 //mongodb+srv://root:<password>@cluster0.8pl1w.mongodb.net/<dbname>?retryWrites=true&w=majority
 mongoose
   .connect(
-    `mongodb+srv://${process.env.MONGO_DB_USER}:${process.env.MONGO_DB_PASSWORD}@cluster0.8pl1w.mongodb.net/${process.env.MONGO_DB_DATABASE}?retryWrites=true&w=majority`,
+    `${process.env.CONNECTION_URL}`,
     {
       useNewUrlParser: true,
       useUnifiedTopology: true,
@@ -39,6 +39,9 @@ mongoose
 app.use(cors());
 app.use(express.json());
 app.use("/public", express.static(path.join(__dirname, "uploads")));
+app.get('/',(req,res) => {
+res.json({message: 'I am active'})
+})
 app.use("/api", authRoutes);
 app.use("/api", adminRoutes);
 app.use("/api", categoryRoutes);

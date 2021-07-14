@@ -1,12 +1,13 @@
 import axios from "../helpers/axios";
 import { cartConstants } from "./constants";
 import store from "../store";
+import { api } from '../urlConfig'
 
 const getCartItems = () => {
   return async (dispatch) => {
     try {
       dispatch({ type: cartConstants.ADD_TO_CART_REQUEST });
-      const res = await axios.post(`/user/getCartItems`);
+      const res = await axios.post(`${api}/user/getCartItems`);
       if (res.status === 200) {
         const { cartItems } = res.data;
         console.log({ getCartItems: cartItems });

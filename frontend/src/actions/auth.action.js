@@ -1,5 +1,6 @@
 import { authConstants, cartConstants } from "./constants";
 import axios from "../helpers/axios";
+import {api} from '../urlConfig'
 
 // new update signup action
 export const signup = (user) => {
@@ -7,7 +8,7 @@ export const signup = (user) => {
     let res;
     try {
       dispatch({ type: authConstants.SIGNUP_REQUEST });
-      res = await axios.post(`/signup`, user);
+      res = await axios.post(`${api}/signup`, user);
       if (res.status === 201) {
         dispatch({ type: authConstants.SIGNUP_SUCCESS });
         const { token, user } = res.data;
@@ -37,7 +38,7 @@ export const signup = (user) => {
 export const login = (user) => {
   return async (dispatch) => {
     dispatch({ type: authConstants.LOGIN_REQUEST });
-    const res = await axios.post(`/signin`, {
+    const res = await axios.post(`${api}/signin`, {
       ...user,
     });
 

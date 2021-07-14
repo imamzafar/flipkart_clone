@@ -25,6 +25,7 @@ function createCategories(categories, parentId = null) {
   return categoryList;
 }
 
+// there is difference add category and create category
 exports.addCategory = (req, res) => {
   const categoryObj = {
     name: req.body.name,

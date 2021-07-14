@@ -1,12 +1,14 @@
 import axios from "../helpers/axios";
 import { productConstants } from "./constants";
+import {api} from '../urlConfig'
 
 // new action
 const getProducts = () => {
   return async (dispatch) => {
     try {
       dispatch({ type: productConstants.GET_ALL_PRODUCTS_REQUEST });
-      const res = await axios.post(`product/getProducts`);
+      const res = await axios.post(`${api}/product/getProducts`);
+      
       if (res.status === 200) {
         const { products } = res.data;
         dispatch({
@@ -27,7 +29,7 @@ export const addProduct = (form) => {
   return async (dispatch) => {
     try {
       dispatch({ type: productConstants.ADD_PRODUCT_REQUEST });
-      const res = await axios.post(`product/create`, form);
+      const res = await axios.post(`${api}/product/create`, form);
       if (res.status === 201) {
         dispatch({ type: productConstants.ADD_PRODUCT_SUCCESS });
         dispatch(getProducts());
