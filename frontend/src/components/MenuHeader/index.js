@@ -2,6 +2,7 @@ import React, { useEffect } from 'react';
 import './style.css';
 import { useSelector, useDispatch } from 'react-redux';
 import { getAllCategory } from '../../actions';
+import {api} from '../../urlConfig'
 
 /**
 * @author
@@ -28,7 +29,12 @@ const MenuHeader = (props) => {
               href={`/${category.slug}?cid=${category._id}&type=${category.type}`}>
               {category.name}
             </a> :
-            <span>{category.name}</span>
+            // make me alive later
+            // <span>{category.name}</span>
+            <a style={{padding:'4px'}}
+              href={`/${category.slug}?cid=${category._id}&type=${category.type}`}>
+              {category.name}
+            </a>
           }
           {category.children.length > 0 ? (<ul>{renderCategories(category.children)}</ul>) : null}
         </li>

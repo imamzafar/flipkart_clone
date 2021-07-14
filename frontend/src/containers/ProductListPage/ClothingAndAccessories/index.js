@@ -36,8 +36,8 @@ const ClothingAndAccessories = (props) => {
               className="caImgContainer"
               to={`/${product.slug}/${product._id}/p`}
             >
+              {/* make me alive later */}
               <img src={product.productPictures[0].img} />
-            </Link>
             <div>
               <div className="caProductName">{product.name}</div>
               <div className="caProductPrice">
@@ -45,6 +45,7 @@ const ClothingAndAccessories = (props) => {
                 {product.price}
               </div>
             </div>
+            </Link>
           </div>
         ))}
       </Card>
